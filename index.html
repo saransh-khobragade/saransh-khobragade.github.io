@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saransh Khobragade — Staff Software Engineer specializing in scalable, fault-tolerant backend and distributed systems." />
+  <title>Saransh Khobragade | Staff Software Engineer</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #12161b;
+      --surface-2: #181d24;
+      --text: #f3f5f7;
+      --muted: #a7b0bb;
+      --line: #29313a;
+      --accent: #79c2ff;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(11,13,16,.82);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-weight: 750; letter-spacing: -.03em; }
+    .nav-links { display: flex; gap: 26px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { padding: 120px 0 90px; }
+    .eyebrow {
+      color: var(--accent); font-size: 13px; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(46px, 8vw, 82px);
+      line-height: .98; letter-spacing: -.065em;
+      max-width: 900px; margin: 18px 0 28px;
+    }
+    .hero p {
+      max-width: 720px; color: var(--muted);
+      font-size: 19px; margin-bottom: 34px;
+    }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 11px 17px;
+      border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-weight: 650;
+    }
+    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn:hover { transform: translateY(-1px); }
+    section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-title { font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: .13em; margin-bottom: 32px; font-weight: 750; }
+    .about {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 60px;
+    }
+    .about h2, .contact h2 { margin: 0; font-size: 34px; letter-spacing: -.04em; line-height: 1.15; }
+    .about p { color: var(--muted); margin: 0 0 16px; }
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px; margin-top: 38px;
+    }
+    .metric {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 10px; padding: 20px;
+    }
+    .metric strong { display:block; font-size: 28px; letter-spacing: -.04em; }
+    .metric span { color: var(--muted); font-size: 12px; }
+    .timeline { display: grid; gap: 16px; }
+    .job {
+      display: grid; grid-template-columns: 190px 1fr; gap: 30px;
+      padding: 26px 0; border-bottom: 1px solid var(--line);
+    }
+    .job:last-child { border-bottom: 0; }
+    .date { color: var(--muted); font-size: 13px; }
+    .company { font-size: 21px; font-weight: 750; }
+    .role { color: var(--accent); font-size: 14px; margin: 2px 0 14px; }
+    .job ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .job li { margin: 7px 0; }
+    .project-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .project {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 12px; padding: 26px;
+    }
+    .project h3 { margin: 0 0 8px; font-size: 20px; }
+    .project p { color: var(--muted); margin: 0 0 18px; }
+    .tag {
+      display: inline-block; border: 1px solid var(--line);
+      border-radius: 999px; padding: 4px 9px; margin: 3px 3px 0 0;
+      font-size: 11px; color: var(--muted);
+    }
+    .skills {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .skill-group {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 10px; padding: 20px;
+    }
+    .skill-group h3 { font-size: 14px; margin: 0 0 12px; }
+    .skill-group p { color: var(--muted); font-size: 13px; margin: 0; }
+    .contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end;
+    }
+    .contact p { color: var(--muted); }
+    .contact-links { display: grid; gap: 10px; }
+    .contact-link {
+      padding: 15px 17px; border: 1px solid var(--line);
+      border-radius: 8px; color: var(--muted);
+    }
+    .contact-link:hover { color: var(--text); background: var(--surface); }
+    footer { padding: 28px 0 45px; color: #69737e; font-size: 12px; }
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 80px; }
+      .about, .contact { grid-template-columns: 1fr; gap: 28px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .job { grid-template-columns: 1fr; gap: 8px; }
+      .project-grid, .skills { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#">SK.</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Staff Software Engineer · Bengaluru</div>
+    <h1>Building resilient systems at scale.</h1>
+    <p>
+      I’m Saransh Khobragade, a Staff Software Engineer with 11 years of experience
+      building high-throughput, fault-tolerant backend platforms and event-driven
+      distributed systems.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#experience">View experience</a>
+      <a class="btn" href="https://www.linkedin.com/in/saransh-khobragade-ab3ba68a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <!-- Replace this with your GitHub URL -->
+      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="container">
+      <div class="section-title">About</div>
+      <div class="about">
+        <h2>Architecture, reliability & technical leadership.</h2>
+        <div>
+          <p>
+            I work across architecture, data modeling and reliability for distributed,
+            event-driven systems. My focus is turning ambiguous product goals into
+            scalable services that are practical to operate.
+          </p>
+          <p>
+            My recent work spans Node.js, Java, Go, Kafka, RabbitMQ, Redis, PostgreSQL
+            and AWS, with experience leading cross-team technical direction and delivery.
+          </p>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><strong>11+</strong><span>Years engineering</span></div>
+        <div class="metric"><strong>5K/s</strong><span>Load-tested events/sec</span></div>
+        <div class="metric"><strong>30</strong><span>Engineers across vertical</span></div>
+        <div class="metric"><strong>10K</strong><span>Concurrent active users</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-title">Experience</div>
+      <div class="timeline">
+
+        <article class="job">
+          <div class="date">Oct 2025 — Present</div>
+          <div>
+            <div class="company">Warner Bros. Discovery</div>
+            <div class="role">Staff Software Engineer · Bengaluru</div>
+            <ul>
+              <li>Backend Staff lead for social-engagement systems on a sports streaming platform, owning end-to-end HLD/LLD across a federated GraphQL microservice architecture.</li>
+              <li>Architected a real-time social alerts platform spanning 6 services, load-tested to ~5,000 events/sec at P95 &lt; 500ms and designed for 10,000 concurrent active users.</li>
+              <li>Lead one of 4 verticals with 7–8 engineers, driving cross-team technical collaboration, design alignment and delivery.</li>
+              <li>Defined shared event-reliability standards including at-least-once idempotency, spam suppression and runtime-tunable thresholds.</li>
+              <li>Architected user-to-user following using a dual-write model delivering &lt;50ms count reads and &lt;200ms paginated reads.</li>
+              <li>Scaled the follow graph to a 5,000-following cap with rate-limited alerts and batch status checks.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="date">Aug 2020 — Sep 2025</div>
+          <div>
+            <div class="company">Atlassian</div>
+            <div class="role">Senior Software Engineer · Bengaluru</div>
+            <ul>
+              <li>Implemented state management for long-running automation and contributed to the rendering-engine revamp for workflow tree building.</li>
+              <li>Managed a team of 6 engineers while architecting projects with focus on timelines, functionality and cost efficiency.</li>
+              <li>Implemented an AWS Lambda service in Go, resulting in 40% less resource utilization.</li>
+              <li>Worked on a caching service that improved project delivery efficiency by 20%.</li>
+              <li>Implemented vulnerability checks, PR checks and Sonar coverage checks, helping platform scores reach 90%.</li>
+              <li>Designed and implemented distributed tracing, reducing debugging issues by 50%.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="date">Jan 2019 — Jun 2020</div>
+          <div>
+            <div class="company">Rebel Foods</div>
+            <div class="role">Senior Software Engineer · Mumbai</div>
+            <ul>
+              <li>Worked as backend lead, focusing on planning and execution to meet project goals and requirements.</li>
+              <li>Engineered and developed a new event-driven microservice from scratch.</li>
+              <li>Developed a central caching service that receives updates through events.</li>
+              <li>Integrated stored procedures for legacy SQL queries, leading to 40% performance improvement.</li>
+              <li>Revamped customer APIs for new profile requirements affecting approximately 85 lakh customers.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="date">Mar 2018 — Dec 2018</div>
+          <div>
+            <div class="company">Capgemini</div>
+            <div class="role">Full Stack Engineer · Pune</div>
+            <ul>
+              <li>Assisted in managing IT projects, contributing to a 10% reduction in project delivery timeline.</li>
+              <li>Implemented an interceptor module for APIs to automatically attach pre-scripts and headers.</li>
+              <li>Developed data-driven SEO initiatives that increased website traffic by 25%.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="date">Jun 2015 — Jan 2018</div>
+          <div>
+            <div class="company">Infosys</div>
+            <div class="role">Software Engineer · Pune</div>
+            <ul>
+              <li>Worked as a full-stack junior engineer on banking projects.</li>
+              <li>Developed and integrated services and APIs.</li>
+              <li>Designed a complete project sub-dashboard using Angular and Java with the team.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-title">Selected work</div>
+      <div class="project-grid">
+        <article class="project">
+          <h3>Real-time Social Alerts</h3>
+          <p>Event-driven platform for social engagement on a sports streaming product, designed around high throughput, reliability and low-latency delivery.</p>
+          <span class="tag">Node.js</span><span class="tag">Java</span><span class="tag">Go</span><span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">Redis</span><span class="tag">AWS</span>
+        </article>
+        <article class="project">
+          <h3>User-to-user Following</h3>
+          <p>Scalable follow graph with dual writes, low-latency reads, paginated access and resilience during upstream outages.</p>
+          <span class="tag">GraphQL</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Microservices</span>
+        </article>
+        <article class="project">
+          <h3>Automation Platform</h3>
+          <p>Long-running automation state management and workflow rendering improvements, alongside platform engineering and developer productivity initiatives.</p>
+          <span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">AWS Lambda</span><span class="tag">Go</span>
+        </article>
+        <article class="project">
+          <h3>Distributed Tracing</h3>
+          <p>Designed and implemented tracing for a platform to improve observability and reduce debugging effort across distributed services.</p>
+          <span class="tag">Observability</span><span class="tag">Microservices</span><span class="tag">AWS</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">Technical toolkit</div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <p>Java · Node.js · Go</p>
+        </div>
+        <div class="skill-group">
+          <h3>Backend & APIs</h3>
+          <p>Spring Boot · Express.js · GraphQL · REST APIs · Microservices</p>
+        </div>
+        <div class="skill-group">
+          <h3>Data & Messaging</h3>
+          <p>PostgreSQL · MySQL · MongoDB · NoSQL · Redis · Kafka · RabbitMQ</p>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud & Platform</h3>
+          <p>AWS · Docker · Kubernetes · GitHub · Webpack · SaaS · PaaS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+      <div>
+        <div class="section-title">Contact</div>
+        <h2>Let’s build something reliable.</h2>
+        <p>Open to conversations about backend architecture, distributed systems and engineering leadership.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:saransh98@gmail.com">saransh98@gmail.com</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/saransh-khobragade-ab3ba68a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <!-- Replace with your actual GitHub profile -->
+        <a class="contact-link" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Saransh Khobragade · Staff Software Engineer</div>
+</footer>
+
+</body>
+</html>
